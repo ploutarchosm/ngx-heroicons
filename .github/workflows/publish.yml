@@ -1,0 +1,38 @@
+name: Publish Angular Lib to npm
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Triggers only when pushing semantic version tags (e.g., v1.0.0)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Check out the source code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js and point the registry url to npm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org/'
+
+      # 3. Install dependencies using clean install
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Build the Angular library using production configuration
+      - name: Build Library
+        run: npx ng build ngx-heroicons --configuration production
+
+      # 5. Publish to npm registry using the repository secret
+      - name: Publish to npm
+        # For scoped packages, include the '--access public' flag 
+        run: npm publish --access public
+        working-directory: ./dist/ngx-heroicons
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
