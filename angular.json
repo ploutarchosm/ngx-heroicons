@@ -6,5 +6,31 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "ngx-heroicons": {
+      "projectType": "library",
+      "root": "projects/ngx-heroicons",
+      "sourceRoot": "projects/ngx-heroicons/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-heroicons/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-heroicons/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ngx-heroicons/tsconfig.spec.json"
+          }
+        }
+      }
+    }
   }
 }
