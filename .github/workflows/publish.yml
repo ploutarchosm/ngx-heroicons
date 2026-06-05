@@ -1,0 +1,59 @@
+# .github/workflows/publish.yml
+name: Publish to NPM
+
+# Triggers when you push a semver tag (e.g. v1.2.3), or run it manually.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # required for OIDC trusted publishing + provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24.15.0'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Trusted publishing (OIDC) needs a recent npm. Node 24 ships npm 11.x,
+      # but pin to the latest to be safe.
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
+      # Optional but recommended: fail fast if the build is broken
+      - name: Build library
+        run: npx ng build ngx-heroicons --configuration production
+
+      # Make the git tag the single source of truth for the published version.
+      # On a tag push, GITHUB_REF_NAME is e.g. "v1.0.3"; strip the leading "v"
+      # and write it into the built package.json. Skipped on manual dispatch,
+      # where the version built from the source package.json is used as-is.
+      - name: Sync version from tag
+        if: github.ref_type == 'tag'
+        working-directory: dist/ngx-heroicons
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "Publishing version $VERSION"
+          npm version "$VERSION" --no-git-tag-version --allow-same-version
+
+      # ng-packagr emits the publishable package to dist/ngx-heroicons.
+      # No NODE_AUTH_TOKEN: auth is handled by OIDC trusted publishing.
+      # Provenance is generated automatically when publishing via OIDC.
+      - name: Publish to NPM
+        run: npm publish --access public
+        working-directory: dist/ngx-heroicons
