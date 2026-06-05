@@ -1,6 +1,9 @@
 {
   "name": "@ploutarchosm/ngx-heroicons",
-  "version": "1.0.0",
+  "version": "1.0.3",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/common": "^22.0.0",
     "@angular/core": "^22.0.0"
