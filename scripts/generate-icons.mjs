@@ -87,7 +87,7 @@ function staticAttrs(attrs) {
 function componentSource(icon) {
   const { className, selector, naturalSize, attrs, inner } = icon;
   return `import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HeroiconBase } from '../../heroicon-base';
+import { HeroiconBase } from '../../ngx-heroicons-base';
 
 @Component({
   selector: '${selector}',
