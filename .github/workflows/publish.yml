@@ -35,9 +35,10 @@ jobs:
       - name: Upgrade npm
         run: npm install -g npm@latest
 
-      # Optional but recommended: fail fast if the build is broken
+      # prebuild hook generates icon components from heroicons SVGs,
+      # then ng-packagr compiles the library.
       - name: Build library
-        run: npx ng build ngx-heroicons --configuration production
+        run: npm run build
 
       # Make the git tag the single source of truth for the published version.
       # On a tag push, GITHUB_REF_NAME is e.g. "v1.0.3"; strip the leading "v"

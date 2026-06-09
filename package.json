@@ -7,9 +7,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "generate:icons": "node scripts/generate-icons.mjs",
-    "postinstall": "npm run generate:icons",
     "prebuild": "npm run generate:icons",
-    "build": "ng build ngx-heroicons"
+    "build": "ng build ngx-heroicons --configuration production"
   },
   "private": false,
   "packageManager": "npm@11.6.2",
