@@ -25,7 +25,7 @@ The simplest, smallest, most secure path. Import the exact icon component(s) you
 
 ```ts
 import { Component } from '@angular/core';
-import { AcademicCapOutlineIcon, BeakerSolidIcon } from '@pms/ngx-heroicons';
+import { AcademicCapOutlineIcon, BeakerSolidIcon } from '@ploutarchosm/ngx-heroicons';
 
 @Component({
   selector: 'app-demo',
