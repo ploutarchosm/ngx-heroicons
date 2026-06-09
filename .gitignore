@@ -1,5 +1,8 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# Do not include full list icon in the build
+projects/ngx-heroicons/src/lib/icons/
+
 # Compiled output
 /dist
 /tmp
