@@ -9,8 +9,7 @@
     "test": "ng test",
     "generate:icons": "node scripts/generate-icons.mjs",
     "postinstall": "npm run generate:icons",
-    "prebuild": "npm run generate:icons",
-    "build": "ng build ngx-heroicons"
+    "prebuild": "npm run generate:icons"
   },
   "private": false,
   "packageManager": "npm@11.6.2",
