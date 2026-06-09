@@ -1,4 +1,4 @@
-# @pms/ngx-heroicons
+# @ploutarchosm/ngx-heroicons
 
 [Heroicons](https://heroicons.com) delivered as **tree-shakable, compiled standalone Angular components**.
 
@@ -16,7 +16,7 @@ All four variants are included: `outline` (24px), `solid` (24px), `mini` (20px),
 ## Install
 
 ```bash
-npm install @pms/ngx-heroicons
+npm install @ploutarchosm/ngx-heroicons
 ```
 
 ## Usage — static (recommended)
