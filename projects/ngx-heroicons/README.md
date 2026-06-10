@@ -1,4 +1,4 @@
-# @pms/ngx-heroicons
+# @ploutarchosm/ngx-heroicons
 
 [Heroicons](https://heroicons.com) delivered as **tree-shakable, compiled standalone Angular components**.
 
@@ -16,7 +16,7 @@ All four variants are included: `outline` (24px), `solid` (24px), `mini` (20px),
 ## Install
 
 ```bash
-npm install @pms/ngx-heroicons
+npm install @ploutarchosm/ngx-heroicons
 ```
 
 ## Usage — static (recommended)
@@ -25,7 +25,7 @@ The simplest, smallest, most secure path. Import the exact icon component(s) you
 
 ```ts
 import { Component } from '@angular/core';
-import { AcademicCapOutlineIcon, BeakerSolidIcon } from '@pms/ngx-heroicons';
+import { AcademicCapOutlineIcon, BeakerSolidIcon } from '@ploutarchosm/ngx-heroicons';
 
 @Component({
   selector: 'app-demo',
@@ -69,7 +69,7 @@ import {
   CheckCircleSolidIcon,
   XCircleSolidIcon,
   ClockSolidIcon,
-} from '@pms/ngx-heroicons';
+} from '@ploutarchosm/ngx-heroicons';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -83,7 +83,7 @@ export const appConfig: ApplicationConfig = {
 ```
 
 ```ts
-import { Heroicon } from '@pms/ngx-heroicons';
+import { Heroicon } from '@ploutarchosm/ngx-heroicons';
 
 @Component({
   imports: [Heroicon],
