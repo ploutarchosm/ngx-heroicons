@@ -69,7 +69,7 @@ import {
   CheckCircleSolidIcon,
   XCircleSolidIcon,
   ClockSolidIcon,
-} from '@pms/ngx-heroicons';
+} from '@ploutarchosm/ngx-heroicons';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -83,7 +83,7 @@ export const appConfig: ApplicationConfig = {
 ```
 
 ```ts
-import { Heroicon } from '@pms/ngx-heroicons';
+import { Heroicon } from '@ploutarchosm/ngx-heroicons';
 
 @Component({
   imports: [Heroicon],
